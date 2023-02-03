@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --port=3010"
+    "start": "ts-node ./src/server.ts",
+    "dev": "nodemon --port=3010"
   },
   "keywords": [],
   "author": "",
