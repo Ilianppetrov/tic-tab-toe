@@ -6,7 +6,7 @@ class SocketService {
   public roomId: string | undefined;
 
   constructor() {
-    this.socket = io("ws://localhost:3010/");
+    this.socket = io("https://tic-tac-toe-be-4uae.onrender.com");
     console.log("connected");
   }
   //   public connect() {
