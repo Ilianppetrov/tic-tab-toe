@@ -60,6 +60,23 @@ export default function Welcome() {
           >
             Join
           </button>
+          <button
+            onClick={() => {
+              if (screen.orientation.type === "landscape-primary") {
+                screen.orientation.lock("any");
+                return;
+              }
+
+              screen.orientation.lock("landscape-primary");
+            }}
+            class=" p-2 text-xl rounded-lg text-purple-400 font-semibold bg-white border-white border-2 enabled:hover:bg-purple-400 enabled:hover:text-white disabled:opacity-60"
+          >
+            Orientation
+          </button>
+          <div class="text-white p-4">
+            {" "}
+            {JSON.stringify(screen.orientation?.angle, undefined, 2)}
+          </div>
           <Show when={!!error()}>
             <div class="text-red-800 font-semibold text-center">{error()}</div>
           </Show>
