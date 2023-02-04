@@ -10,6 +10,8 @@ export default function Welcome() {
     setRoomId(e.target?.value);
   }
 
+  const myScreenOrientation = window.screen.orientation;
+
   return (
     <div class="w-full h-full p-10 flex flex-col items-center bg-purple-400">
       <h1 class="text-7xl text-white font-semibold ">Tic-Tac-Toe</h1>
@@ -62,12 +64,12 @@ export default function Welcome() {
           </button>
           <button
             onClick={() => {
-              if (screen.orientation.type === "landscape-primary") {
-                screen.orientation.lock("any");
+              if (myScreenOrientation.type === "landscape-primary") {
+                myScreenOrientation.lock("any");
                 return;
               }
 
-              screen.orientation.lock("landscape-primary");
+              myScreenOrientation.lock("landscape-primary");
             }}
             class=" p-2 text-xl rounded-lg text-purple-400 font-semibold bg-white border-white border-2 enabled:hover:bg-purple-400 enabled:hover:text-white disabled:opacity-60"
           >
@@ -75,7 +77,7 @@ export default function Welcome() {
           </button>
           <div class="text-white p-4">
             {" "}
-            {JSON.stringify(screen.orientation?.angle, undefined, 2)}
+            {JSON.stringify(myScreenOrientation)}
           </div>
           <Show when={!!error()}>
             <div class="text-red-800 font-semibold text-center">{error()}</div>
